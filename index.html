@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Dancing+Script:wght@500;600&family=Playfair+Display:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="hearts-canvas" aria-hidden="true"></canvas>
+  <button id="music-toggle" class="music-toggle" type="button" aria-pressed="true">
+    Music: On
+  </button>
+  <div id="music-prompt" class="music-prompt" role="button" tabindex="0" aria-hidden="true">
+    Tap to start the music
+  </div>
+
+  <header class="hero" id="top">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Our Story</p>
+      <h1 class="typing" data-text="To Joyce Wangui, My Forever Valentine."></h1>
+      <p class="subcopy">Every moment with you is a gift, and every Valentine's Day is a promise to love you louder.</p>
+      <a class="cta" href="#timeline">Scroll to see our journey</a>
+    </div>
+  </header>
+
+  <section class="counter-section">
+    <div class="counter-card">
+      <p class="counter-label">Together for</p>
+      <div id="love-timer" aria-live="polite">Calculating our time...</div>
+    </div>
+  </section>
+
+  <section class="scrapbook">
+    <div class="cluster cluster-a">
+      <div class="slideshow portrait" data-slideshow="cluster-a-1"></div>
+      <div class="slideshow landscape" data-slideshow="cluster-a-2"></div>
+      <div class="slideshow portrait" data-slideshow="cluster-a-3"></div>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <div class="track"></div>
+
+      <article class="moment">
+        <div class="moment-text">
+          <h3>The hello that changed everything</h3>
+          <p>Your smile turned a simple moment into the start of my favorite story.</p>
+        </div>
+        <div class="moment-media">
+          <div class="slideshow portrait" data-slideshow="timeline-1"></div>
+        </div>
+      </article>
+
+      <article class="moment">
+        <div class="moment-text">
+          <h3>Our first adventure together</h3>
+          <p>We chased sunsets, laughed too loud, and I felt at home beside you.</p>
+        </div>
+        <div class="moment-media">
+          <div class="slideshow landscape" data-slideshow="timeline-2"></div>
+        </div>
+      </article>
+
+      <article class="moment">
+        <div class="moment-text">
+          <h3>The everyday magic</h3>
+          <p>Morning texts, gentle touches, and the quiet ways we choose each other.</p>
+        </div>
+        <div class="moment-media">
+          <div class="slideshow portrait" data-slideshow="timeline-3"></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="cluster cluster-b">
+      <div class="slideshow landscape" data-slideshow="cluster-b-1"></div>
+      <div class="slideshow portrait" data-slideshow="cluster-b-2"></div>
+      <div class="slideshow landscape" data-slideshow="cluster-b-3"></div>
+    </div>
+  </section>
+
+  <section class="memories" id="memories">
+    <div class="section-title">
+      <h2>Favorite Memories</h2>
+      <p>Little moments that live forever.</p>
+    </div>
+    <div class="carousel">
+      <button class="carousel-btn prev" type="button" aria-label="Previous memory">&#8249;</button>
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          <article class="memory-card">
+            <h3>That first smile</h3>
+            <p>The moment you looked my way and the world felt softer.</p>
+          </article>
+          <article class="memory-card">
+            <h3>Our cozy nights</h3>
+            <p>Quiet laughter, warm tea, and the peace of being together.</p>
+          </article>
+          <article class="memory-card">
+            <h3>Sunset walks</h3>
+            <p>Golden skies and your hand in mine, time moving slow.</p>
+          </article>
+          <article class="memory-card">
+            <h3>Unexpected adventures</h3>
+            <p>Every surprise felt perfect because I was with you.</p>
+          </article>
+          <article class="memory-card">
+            <h3>Soft mornings</h3>
+            <p>Sleepy smiles and sweet whispers that start our day.</p>
+          </article>
+        </div>
+      </div>
+      <button class="carousel-btn next" type="button" aria-label="Next memory">&#8250;</button>
+    </div>
+  </section>
+
+  <section class="randomizer" id="randomizer">
+    <div class="section-title">
+      <h2>Why I Love You</h2>
+      <p>Tap for a new reason.</p>
+    </div>
+    <div class="randomizer-card">
+      <p id="random-reason">Tap the button to reveal a reason.</p>
+      <button id="reason-btn" class="cta secondary" type="button">Reveal a reason</button>
+    </div>
+  </section>
+
+  <section class="poem" id="poem">
+    <div class="section-title">
+      <h2>Poem</h2>
+      <p>Words that feel like you.</p>
+    </div>
+    <div class="poem-card">
+      <p class="poem-text">MY EMPRESS
+
+sparkling eyes imitating the diamonds, and your smile so bright like the stars that twinkle in the night, oh my when we together you make everything wrong feel right
+and you're summertime fine like the bloom of a flower and your lips so plump every kiss just strikes me with a bliss oh well im getting this high when you smile coz im calling you my empress
+
+my empress thats right she keeps on calming my mind
+im seeing her all the time when i sleep i start dreaming seeing her through the night, my heart starts beating so loud, can't keep the temperature down
+i get up pick up my phone look at your pictures online
+wish you were there by my side
+so i could hold you so tight
+these feelings somehow ain't right
+something is clouding my mind
+and its me that i see when i look into your
+
+sparkling eyes imitating the diamonds, and your smile so bright like the stars that twinkle in the night, oh my when we together you make everything wrong feel right
+and you're summertime fine like the bloom of a flower and your lips so plump every kiss just strikes me with a bliss oh well im getting this high when you smile coz im calling you my empress
+
+your highness
+calling you royalty coz you are priceless
+im falling so hard for coz you're worth it
+with the look in your eyes i know you're perfect
+can't let you out of my sight coz you're my target
+thay saying love is so blind i need no glasses
+i wanna be the one callin you my empress
+coz you're my empress, my love is excess
+
+sparkling eyes imitating the diamonds
+smile so bright than the stars that twinkle in the night tonight oh my oh my
+girl you're summertime fine like the bloom of a flower
+and you lips so plump every kiss just strikes me with a bliss oh yes
+now im calling you my empress</p>
+    </div>
+  </section>
+
+  <section class="letter" id="letter">
+    <div class="section-title">
+      <h2>A Letter to You</h2>
+      <p>Write from the heart.</p>
+    </div>
+    <div class="letter-card">
+      <textarea id="love-letter" rows="14">My Dearest Joyce,
+
+They say a writer spends a lifetime chasing the lightning of one perfect feeling. Then I met you, and I realized I had already caught it.
+
+Joyce Wangui, you are the most beautiful thing I have ever known. Being near you feels like the first breath of a new season - clear, necessary, and full of life. When I think of you, I do not just think of words; I think of the warmth of your skin, the light in your eyes when you laugh, and the way the world settles the moment you walk into a room.
+
+Our love is my favorite kind of poetry: raw, honest, and ours. I know we have our moments of static and our days of disagreement, but there is a sacred romance in how we find our way back to each other. We do not settle for easy - we fight for us. I would rather have a thousand difficult days with you than a single perfect day with anyone else.
+
+Why you are my heart's north star:
+Your presence - the way you fill a room without saying a word.
+The intimacy - our hands fit together like a well-worn book.
+The resilience - how we turn hard days into a stronger tomorrow.
+
+Joyce, you are my muse and my best friend. I want to spend my life learning every chapter of who you are, from the softest morning whispers to the deepest midnight dreams. Thank you for choosing me to be the one who gets to love you.
+
+I am yours, in every version of every world.
+
+Happy Valentine's Day, my love.
+
+Forever yours,
+Melville</textarea>
+      <button id="open-letter" class="cta secondary" type="button">Open Letter</button>
+      <div class="letter-slides">
+        <div class="slideshow letter letter-a" data-slideshow="letter-1"></div>
+        <div class="slideshow letter letter-b" data-slideshow="letter-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="voice-notes" id="voice-notes">
+    <div class="section-title">
+      <h2>Voice Notes</h2>
+      <p>Little whispers from my heart to yours.</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <h3>Forever with you</h3>
+        <audio class="voice-note" controls>
+          <source src="./audio/forever.m4a" type="audio/mpeg" />
+        </audio>
+      </div>
+      <div class="voice-card">
+        <h3>Missing you</h3>
+        <audio class="voice-note" controls>
+          <source src="./audio/i miss u.m4a" type="audio/mpeg" />
+        </audio>
+      </div>
+      <div class="voice-card">
+        <h3>I love you</h3>
+        <audio class="voice-note" controls>
+          <source src="./audio/love.m4a" type="audio/mpeg" />
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <section class="reasons" id="reasons">
+    <div class="section-title">
+      <h2>Reasons Why</h2>
+      <p>Small things, endless love.</p>
+    </div>
+    <div class="reasons-grid">
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your laugh</div>
+          <div class="flip-back">It is my favorite sound.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your kindness</div>
+          <div class="flip-back">You make every room softer.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your strength</div>
+          <div class="flip-back">You inspire me to be better.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your eyes</div>
+          <div class="flip-back">Home, every time.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your patience</div>
+          <div class="flip-back">You steady my heart.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your hugs</div>
+          <div class="flip-back">The coziest place on Earth.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your dreams</div>
+          <div class="flip-back">I love cheering you on.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your humor</div>
+          <div class="flip-back">We laugh at everything.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">Your love</div>
+          <div class="flip-back">My favorite forever.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guestbook" id="guestbook">
+    <div class="section-title">
+      <h2>Leave a Note</h2>
+      <p>A little space for her to write back.</p>
+    </div>
+    <form id="guestbook-form" class="guestbook-form">
+      <input id="guest-name" type="text" name="name" placeholder="Your name" required />
+      <textarea id="guest-message" name="message" rows="4" placeholder="Your message" required></textarea>
+      <button class="cta" type="submit">Send</button>
+    </form>
+    <div id="guestbook-entries" class="guestbook-entries"></div>
+  </section>
+
+  <footer class="footer">
+    <p>Happy Valentine's Day, Joyce - today and always, I choose you.</p>
+  </footer>
+
+  <div class="modal" id="letter-modal" aria-hidden="true" role="dialog" aria-labelledby="letter-title">
+    <div class="modal-content">
+      <button class="modal-close" type="button" aria-label="Close letter">x</button>
+      <h3 id="letter-title">My Letter to You</h3>
+      <div class="letter-body" id="letter-body"></div>
+    </div>
+  </div>
+
+  <audio id="bg-music"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
