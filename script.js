@@ -568,6 +568,147 @@ function initHeartsCanvas() {
   animate();
 }
 
+function initChoreManager() {
+  const form = document.getElementById("chore-form");
+  const choreList = document.getElementById("chore-list");
+  const filterBtns = document.querySelectorAll(".chore-filter-btn");
+  if (!form || !choreList) return;
+
+  const storageKey = "choreEntries";
+  let activeFilter = "all";
+
+  const loadChores = () => {
+    const stored = localStorage.getItem(storageKey);
+    return stored ? JSON.parse(stored) : [];
+  };
+
+  const saveChores = (chores) => {
+    localStorage.setItem(storageKey, JSON.stringify(chores));
+  };
+
+  const renderChores = () => {
+    const chores = loadChores();
+    const filtered = chores.filter((c) => {
+      if (activeFilter === "pending") return !c.done;
+      if (activeFilter === "done") return c.done;
+      return true;
+    });
+
+    choreList.innerHTML = "";
+
+    if (!filtered.length) {
+      const empty = document.createElement("p");
+      empty.className = "chore-empty";
+      empty.textContent =
+        activeFilter === "done"
+          ? "No completed chores yet — go team!"
+          : activeFilter === "pending"
+          ? "All caught up! Nothing left to do."
+          : "No chores yet. Add one above!";
+      choreList.appendChild(empty);
+      return;
+    }
+
+    filtered.forEach((chore) => {
+      const card = document.createElement("div");
+      card.className = `chore-card${chore.done ? " done" : ""}`;
+      card.dataset.id = chore.id;
+
+      const info = document.createElement("div");
+      info.className = "chore-info";
+
+      const name = document.createElement("span");
+      name.className = "chore-name";
+      name.textContent = chore.name;
+
+      const meta = document.createElement("span");
+      meta.className = "chore-meta";
+      const parts = [];
+      if (chore.assignee) parts.push(chore.assignee);
+      if (chore.category) parts.push(chore.category);
+      meta.textContent = parts.join(" · ");
+
+      info.appendChild(name);
+      if (parts.length) info.appendChild(meta);
+
+      const actions = document.createElement("div");
+      actions.className = "chore-actions";
+
+      const doneBtn = document.createElement("button");
+      doneBtn.type = "button";
+      doneBtn.className = "chore-btn chore-done-btn";
+      doneBtn.setAttribute("aria-label", chore.done ? "Mark as pending" : "Mark as done");
+      doneBtn.textContent = chore.done ? "↩" : "✓";
+
+      const delBtn = document.createElement("button");
+      delBtn.type = "button";
+      delBtn.className = "chore-btn chore-del-btn";
+      delBtn.setAttribute("aria-label", "Delete chore");
+      delBtn.textContent = "✕";
+
+      doneBtn.addEventListener("click", () => {
+        const chores = loadChores();
+        const idx = chores.findIndex((c) => c.id === chore.id);
+        if (idx !== -1) {
+          chores[idx].done = !chores[idx].done;
+          saveChores(chores);
+          renderChores();
+        }
+      });
+
+      delBtn.addEventListener("click", () => {
+        const chores = loadChores().filter((c) => c.id !== chore.id);
+        saveChores(chores);
+        renderChores();
+      });
+
+      actions.appendChild(doneBtn);
+      actions.appendChild(delBtn);
+      card.appendChild(info);
+      card.appendChild(actions);
+      choreList.appendChild(card);
+    });
+  };
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const nameInput = document.getElementById("chore-name");
+    const assigneeInput = document.getElementById("chore-assignee");
+    const categoryInput = document.getElementById("chore-category");
+    if (!nameInput) return;
+
+    const name = nameInput.value.trim();
+    if (!name) return;
+
+    const chore = {
+      id: Date.now(),
+      name,
+      assignee: assigneeInput ? assigneeInput.value : "",
+      category: categoryInput ? categoryInput.value : "General",
+      done: false,
+    };
+
+    const chores = loadChores();
+    chores.unshift(chore);
+    saveChores(chores);
+    nameInput.value = "";
+    if (assigneeInput) assigneeInput.value = "";
+    if (categoryInput) categoryInput.value = "General";
+    renderChores();
+  });
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeFilter = btn.dataset.filter;
+      renderChores();
+    });
+  });
+
+  renderChores();
+}
+
 updateTimer();
 setInterval(updateTimer, 1000);
 typeText();
@@ -581,3 +722,4 @@ initRandomizer();
 initLetterModal();
 initCarousel();
 initGuestbook();
+initChoreManager();
