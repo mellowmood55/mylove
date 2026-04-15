@@ -574,7 +574,7 @@ function initChoreManager() {
   const filterBtns = document.querySelectorAll(".chore-filter-btn");
   if (!form || !choreList) return;
 
-  const storageKey = "choreEntries";
+  const storageKey = "chores";
   let activeFilter = "all";
 
   const loadChores = () => {
@@ -681,7 +681,7 @@ function initChoreManager() {
     if (!name) return;
 
     const chore = {
-      id: Date.now(),
+      id: `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
       name,
       assignee: assigneeInput ? assigneeInput.value : "",
       category: categoryInput ? categoryInput.value : "General",
