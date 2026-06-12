@@ -310,6 +310,39 @@ Melville</textarea>
     <div id="guestbook-entries" class="guestbook-entries"></div>
   </section>
 
+  <section class="chores" id="chores">
+    <div class="section-title">
+      <h2>Our Chores</h2>
+      <p>A little teamwork makes everything sweeter.</p>
+    </div>
+    <div class="chores-container">
+      <form id="chore-form" class="chore-form">
+        <input id="chore-name" type="text" placeholder="Chore name" required />
+        <select id="chore-assignee">
+          <option value="">Assign to…</option>
+          <option value="Melville">Melville</option>
+          <option value="Joyce">Joyce</option>
+          <option value="Both">Both of us</option>
+        </select>
+        <select id="chore-category">
+          <option value="General">General</option>
+          <option value="Cooking">Cooking</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Errands">Errands</option>
+          <option value="Laundry">Laundry</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+        <button class="cta" type="submit">Add Chore</button>
+      </form>
+      <div class="chore-filters">
+        <button class="chore-filter-btn active" type="button" data-filter="all">All</button>
+        <button class="chore-filter-btn" type="button" data-filter="pending">Pending</button>
+        <button class="chore-filter-btn" type="button" data-filter="done">Done</button>
+      </div>
+      <div id="chore-list" class="chore-list"></div>
+    </div>
+  </section>
+
   <footer class="footer">
     <p>Happy Valentine's Day, Joyce - today and always, I choose you.</p>
   </footer>
